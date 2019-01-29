@@ -16,6 +16,7 @@ fix_year <- function(year, x){
 get_lectureship <- function(x){
     
     case_when(
+      
       str_detect(x, "neidhardt|freter") == TRUE ~ "Neidhardt/Freter",
       str_detect(x, "brockman") == TRUE ~ "Brockman",
       str_detect(x, "willison") == TRUE ~ "Willison",
@@ -40,7 +41,7 @@ yr15_16 <- read_excel("data/micro_immuno/`2015-2016 Seminar check list.xlsx", ra
   select(-INSTITUTION, -AFFILIATION, -`SEMINAR TITLE`, -URL) %>% 
   mutate(DATE = ymd(DATE)) %>% 
   rename(Date = DATE, Speaker = SPEAKER, Host = HOST) #%>% 
-  mutate(Lectureship = "empty")
+  #mutate(Lectureship = "empty")
   
 yr16_17 <- read_excel("data/micro_immuno/2016-2017_M+I_seminar_schedule.xlsx") %>%  
   mutate(Date = map(Date, function(x){paste0(x, "-2016") %>% dmy() %>% fix_year(2016, .)})) %>% 
@@ -58,14 +59,47 @@ yr18_19 <- read_excel("data/micro_immuno/2018-2019 M&I SEMINARS.xlsx", col_types
   mutate(Date = ymd(unlist(Date))) %>% 
   select(-`2018`, -URL, -Affiliation, -`Seminar title`) %>% 
   rename(Speaker = `Speaker/Contact`) #%>% 
-  mutate(Lectureship = "empty")
+  #mutate(Lectureship = "empty")
 
 all_yr <- bind_rows(yr14_15, yr15_16, yr16_17, yr17_18, yr18_19) %>% 
-  mutate(Lectureship = map(Speaker, function(x){str_to_lower(x) %>% get_lectureship()})) %>% #dropping yr17/18
-  mutate(Lectureship = unlist(Lectureship)) %>% 
+  mutate(Lectureship = if_else(is.na(Lectureship) == TRUE, 
+                               str_to_lower(Speaker) %>% get_lectureship(),
+              paste(Lectureship))) %>% #dropping yr17/18
   mutate(Speaker = map(Speaker, function(x){str_to_upper(x) %>% str_replace_all(., drop_words, "") %>% 
       str_to_title()})) %>% 
   mutate(Speaker = unlist(Speaker)) %>% 
   mutate(Speaker = map(Speaker, function(x){str_replace(x, ",\\s.*", "")})) %>% 
   mutate(Speaker = unlist(Speaker))
-  
+
+all_yr_clean <- all_yr %>% 
+  filter(!is.na(Speaker)) %>% 
+  mutate(Speaker = str_replace(Speaker, "Neidhardt-Freter", "")) %>% 
+  mutate(Speaker = str_replace_all(Speaker, ":", "")) %>% 
+  mutate(Speaker = str_replace(Speaker, "Uga Found.*$", "")) %>% 
+  mutate(Speaker = trimws(Speaker)) %>% 
+  mutate(Lectureship = case_when(
+    str_detect(Host, "Molecular Mechanisms") ~ "MMMP",
+    str_detect(Host, "DEI") ~ "DEI",
+    TRUE ~ paste(Lectureship)
+    )) %>% 
+  mutate(Host = case_when(
+    str_detect(Host, "Molecular Mechanisms") ~ "Vic DiRita",
+    str_detect(Host, "Mobley [:alnum:]") ~ "Harry Mobley",
+    TRUE ~ paste(Host)
+    )) %>% 
+  mutate(Host = trimws(Host))
+
+write_csv(all_yr_clean, "data/micro_immuno/data_14-19.csv")
+
+hosts <- enframe(name = NULL, all_yr_clean$Host) %>% 
+  rename(Host = value) %>% 
+  distinct()
+
+speakers <- all_yr_clean$Speaker %>% unique()
+
+speakers <- speakers[!speakers %in% hosts$Host] %>% enframe(name = NULL, .) %>% 
+  distinct()
+
+write_csv(hosts, "data/micro_immuno/hosts_14-19.csv")
+
+write_csv(speakers, "data/micro_immuno/speakers_14-19.csv")
