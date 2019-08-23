@@ -11,14 +11,6 @@ get_diversity_value <- function(x, y){
 }
 
 #data setup----
-MI_data <- read_csv("data/micro_immuno/complete_dataset_14-19.csv") 
+speaker_data <- read_csv("data/speaker_dataset_14-19.csv") 
 
-postdoc_data <- read_csv("data/micro_immuno/postdocs_19.csv") %>% 
-  mutate(Trainee_type = "postdoc")
-
-student_data <- read_csv("data/micro_immuno/students_19.csv") %>% 
-  mutate(Trainee_type = "student")
-
-trainee_data <- bind_rows(postdoc_data, student_data) %>% 
-  distinct() %>% 
-  mutate(train_div = get_diversity_value(Gender, Caucasian))
+trainee_data <- read_csv("data/trainee_data_19.csv")

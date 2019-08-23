@@ -41,8 +41,8 @@ compiled_data <- raw_data %>% left_join(., host_data, by = "Host") %>%
 
 
 MI_diversify <- compiled_data %>% 
-  mutate(speaker_div = get_diversity_value(Speaker_gender, Speaker_caucasian), 
-         host_div = get_diversity_value(Host_gender, Host_caucasian),
+  mutate(#speaker_div = get_diversity_value(Speaker_gender, Speaker_caucasian), 
+         #host_div = get_diversity_value(Host_gender, Host_caucasian),
          Host = get_host_type(Host), 
          Lectureship = fct_collapse(Lectureship,
                                     "Brockman" = c("Brockman", "BROCKMAN SPEAKER"),
@@ -50,7 +50,7 @@ MI_diversify <- compiled_data %>%
                                     "MMMP" = c("MMMP", "MMMP-invited"),
                                     "Neidhardt/Freter" = c("Neidhardt/Freter", "NEIDHARDT/FRETER SYMPOSIUM", "Neidhart-Freter"),
                                     "Willison" = c("Willison", "WILLISON SPEAKER"))) %>% 
-  select(-Speaker)
+  select(-Speaker, -Host_notes)
 
-write_csv(MI_diversify, "data/micro_immuno/complete_dataset_14-19.csv")  
+write_csv(MI_diversify, "data/speaker_dataset_14-19.csv")  
 
