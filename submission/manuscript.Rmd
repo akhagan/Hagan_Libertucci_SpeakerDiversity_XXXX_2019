@@ -1,17 +1,15 @@
 ---
-title: '**Invited Speaker Diversity Does Not Reflect Trainee Diversity**'
+title: '**Department Invited Speakers Do Not Reflect Trainee Diversity**'
 csl: mbio.csl
-fontsize: 11pt
+fontsize: 10pt
 output:
   pdf_document:
     includes:
       in_header: header.tex
     keep_tex: yes
-  word_document: default
 geometry: margin=1.0in
-bibliography: references.bib
----
 
+---
 
 ```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE}
 ######################################################################
@@ -19,9 +17,6 @@ bibliography: references.bib
 ######################################################################
 deps = c("kableExtra","knitr","rmarkdown","hexbin","lubridate", "tidyverse", "markdown", "formattable");
 for (dep in deps){
-  if (dep %in% installed.packages()[,"Package"] == FALSE){
-    install.packages(as.character(dep), quiet=TRUE);
-  }
   library(dep, verbose=FALSE, character.only=TRUE)
 }
 ######################################################################
@@ -32,128 +27,69 @@ opts_chunk$set("echo" = FALSE)
 opts_chunk$set("eval" = TRUE)
 opts_chunk$set("warning" = FALSE)
 opts_chunk$set("cache" = FALSE)
-
-inline_hook <- function(x){
-	print(x)
-
-	if(is.list(x)){
-		x <- unlist(x)
-	}
-
-	if(is.numeric(x)){
-		if(abs(x - round(x)) < .Machine$double.eps^0.5){
-			paste(format(x,big.mark=',', digits=0, scientific=FALSE))
-		} else {
-			paste(format(x,big.mark=',', digits=1, nsmall=1, scientific=FALSE))
-		}
-	} else {
-    	paste(x)      
-	}
-}
-knitr::knit_hooks$set(inline=inline_hook)
 ```
 
 ```{r LoadData, eval=TRUE, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}
-######################################################################
-#----------- Read in important functions & load data-----------------#
-######################################################################
 source("../code/load_data.R")
-
-######################################################################
-#----------- Read in analysis and plots-----------------#
-######################################################################
-source("../code/analyze_micro_immuno.R")
-
 ```
 
-\vspace{35mm}
+\vspace{30mm}
 
 Running title: Invited Speaker Diversity Does Not Reflect Trainee Diversity
 
 \vspace{35mm}
 
+Ada K. Hagan, Ph.D.${^1}$^ and Josie Libertucci, Ph.D.${^2}$^
 
-Ada K. Hagan${^1}$^ and Josie Libertucci${^2}$^
+\vspace{35mm}
 
-\vspace{40mm}
+$\dagger$ To whom correspondence should be addressed: akhagan@umich.edu or libertj@mcmaster.ca 
 
-$\dagger$ To whom correspondence should be addressed: akhagan@umich.edu or 
+1\. Department of Microbiology & Immunology, University of Michigan, Ann Arbor, Michigan
 
-1\. Journals Department, American Society for Microbiology, Washington DC
-
-2\. Chemistry and Biology, Ryerson University, Toronto, Ontario
-
+2\. Department of Medicine, McMaster University, Hamilton, Ontario, Canada
 
 
+Figures:
+
+Tables:
+
+Supplemental:
 
 \newpage
 \linenumbers
 
-
 ## Abstract
 
 
-## Importance
+## Keywords
 
+inclusion, diversity, 
 
 \newpage
 
 ## Background
 
+500 words
+
+Representation of women and underrepresented minorities (URM) in science, technology, engineering, and math (STEM) in the workforce remains low despite equal enrollment in undergraduate STEM majors. Longitudinal data indicates that these discrepancies might be partially explained by low retention of women and URM in undergraduate STEM programs where academic performance is a key predictor of retention. A growing body of evidence suggests that women and URM underperform in introductory science courses compared to their white male colleagues, even when representation is equal. Additionally, there is evidence to suggest that women and URM participate less in class, which could inhibit the learning process and subsequent success. A prevailing hypothesis to explain achievement gaps and a lack of participation in class for women and URM is that, many students have an unconscious fear of being seen as a negative stereotype, termed stereotype threat. This is prevalent in fields that have historically been dominated by white males, such as in STEM. In order to retain a diverse population of students in STEM, in an effort to ensure all students have equal opportunities and resources to be successful, underperformance and a lack of participation in introductory science courses needs to be addressed. One mechanism to address the issue is through the use of inclusive teaching practices –teaching methods that promote the full participation, learning, and success of all students.      
+
+##Methods
+
+**Data collection and demographic determination.** Historical information on invited speakers and their hosts were obtained from the departmental records of five academic years (Fall 2014 - Spring 2019). Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point were not considered "invited speakers". The list of current trainees (Spring 2019), was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
+  Demographics for invited speakers, hosts, and trainees were hand-coded using personal knowledge, photos, and CVs. Presenting gender was assigned using a binary system (man/woman). Race/ethnicity was assigned using the current U.S. Census definition where "Caucasian" includes those of Middle Eastern, European, and Russian descent. Historically Underrepresented Minority (HURM) individuals are restricted to those with African-American, Indigenous and/or Hispanic heritage. International indviduals were either visiting the US at the time of their talk, or immigrated to the US as an adult. Individual assignments can be found in the anonymized dataset.
+  
+**Code and data availability.** The anonymized data, code for all analysis steps and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/.
 
 ## Results 
 
 __Model selection and pipeline construction__
 
-[Figure 5]. 
+![Figure 1.](). 
 
 ## Discussion
 
-In this study 
-
-##Methods
-
-**Data collection and gender assignment.**
-  
-  Historical information on invited speakers and their hosts were obtained from departmental records of five academic years (Fall 2014 - Spring 2019). Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point were not considered "invited speakers". The list of current trainees (Spring 2019), was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
-  Demographics for invited speakers, hosts, and trainees were hand-coded using personal knowledge, photos, and CVs. Presenting gender was assigned using a binary system (man/woman). Race/ethnicity was assigned using the current U.S. Census definition where "Caucasian" includes Middle Eastern, European, and Russian. Because of the small "n" of this dataset, those non-Caucasians are referred to collectively as Men or Women of Color. Individual assignments can be found in the anonymized dataset.
-  
-**Code and Data availability.** 
-
-  The anonymized data, the code for all analysis steps and an Rmarkdown version of this manuscript is available at https://github.com/LibertucciLab/Hagan_SpDiv_XXXX_2019/.
-
-\newpage
-\includegraphics{Figure_1}
-**Figure 1. Machine learning pipeline showing predictive model training and evaluation flowchart.  **  We split the data 80%/20% stratified to maintain the overall label distribution, performed five-fold cross-validation on the training data to select the best hyperparameter setting and then using these hyperparameters to train all of the training data. The model was evaluated on a held-out set of data (not used in selecting the model).
-Abbreviations: AUROC, area under the receiver operating characteristic curve
-\newpage
-\includegraphics{Figure_2.png}
-**Figure 2. Generalization and classification performance of ML models using AUROC values of all cross validation and testing performances. **   The median AUROC for diagnosing individuals with SRN using bacterial abundances was higher than chance (depicted by horizontal line at 0.50) for all the ML models. Discriminative performance of random forest model was higher than other ML models. The boxplot shows quartiles at the box ends and the statistical median as the horizontal line in the box. The whiskers show the farthest points that are not outliers. Outliers are data points that are not within 3/2 times the interquartile ranges. 
-Abbreviations: SRN, screen-relevant neoplasias; AUROC, area under the receiver operating characteristic curve; SVM, support vector machine; XGBoost, extreme gradient boosting
-\newpage
-\includegraphics{Figure_3.png}
-**Figure 3. Interpretation of the linear ML models.** (A) L2 logistic regression coefficients  (B) L1 SVM with linear kernel feature weights (C) L2 SVM with linear kernel feature weights. The means weights and coefficients of the most important five OTUs for each model are shown here with the standard deviation over 100 data-splits. Similar OTUs had the largest impact on the predictive performance of L2 logistic regression and L2 SVM with linear kernel. 
-Abbreviations: SVM, support vector machine; OTU, Operational Taxonomic Unit.
-\newpage
-\includegraphics{Figure_4.png}
-**Figure 4. Explanation of the non-linear ML models.** (A) SVM with radial basis kernel (B) decision tree (C) random forest (D) XGboost feaure importances were explanied using permutation importance using held-out test set. The gray rectangle and the dashed line show the IQR range and median of the base testing AUROC without any permutation performed. For all the tree-based models, a *Peptostreptococcus* species (OTU00367) had the largest impact on predictive performance of the model. 
-Abbreviations: SVM, support vector machine; OTU, Operational Taxonomic Unit; RBF, radial basis kernel; OTU, Operational Taxonomic Unit.
-\newpage
-\includegraphics{Figure_5.png}
-**Figure 5. Computational efficiency of seven ML models.** The traintimes for training and testing of each data-split showed the differences in computational efficieny of the seven models. The median traintime in hours was the highest for XGBoost and shortest for L2 logistic regression. The boxplot shows quartiles at the box ends and the statistical median as the horizontal line in the box. The whiskers show the farthest points that are not outliers. Outliers are data points that are not within 3/2 times the interquartile ranges. 
-Abbreviations: AUROC, area under the receiver operating characteristic curve; SVM, support vector machine; XGBoost, extreme gradient boosting.  
-\newpage
-\includegraphics{Figure_S1.png}
-**Figure S1. Hyperparameter setting performances for linear models.** 
-Abbreviations: 
-\newpage
-\includegraphics{Figure_S2.png}
-**Figure S2. Hyperparameter setting performances for non-linear models.** 
-Abbreviations: 
-\newpage
-
-
-
+500 words. In this study 
 
 ## References
 
