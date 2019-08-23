@@ -1,13 +1,12 @@
 library(tidyverse)
-library(lubridate)
-library(hexbin)
+
+source("../code/get_plot_options.R")
 
 get_diversity_value <- function(x, y){
   case_when(
     x == "man" & y == "y" ~ paste("Cauc M"),
-    x == "man" & y == "n" ~ paste("MOC"),
-    x == "woman" & y == "y" ~ paste("Cauc W"),
-    x == "woman" & y == "n" ~ paste("WOC"))
+    x == "woman" & y == "y" ~ paste("Cauc W")
+  )
 }
 
 #calculate two decimal percentage given num & denom
@@ -18,7 +17,7 @@ get_percent <- function(x, y){
 }
 
 #data setup----
-speaker_data <- read_csv("data/speaker_dataset_14-19.csv") %>% 
+speaker_data <- read_csv("../data/speaker_dataset_14-19.csv") %>% 
   mutate(Speaker_id = rownames(.)) %>% 
   rename(Speaker_Caucasian = Speaker_caucasian, 
          Speaker_Gender = Speaker_gender)
@@ -29,12 +28,15 @@ tidy_speaker <- speaker_data %>%
          key = demographic, value = value) %>% 
   separate(demographic, into = c("role", "demographic"), sep = "_") %>% 
   rename(id = Speaker_id) %>% 
-  mutate()
+  mutate(demographic = if_else(demographic == "Internatl", 
+                               "International", demographic))
 
-trainee_data <- read_csv("data/trainee_data_19.csv") %>% 
+trainee_data <- read_csv("../data/trainee_data_19.csv") %>% 
   mutate(id = rownames(.))
 
 tidy_trainee <- trainee_data %>% 
   gather(Gender:Internatl, key = demographic, value = value) %>% 
   rename(role = Trainee_type) %>% 
-  mutate(role = str_to_title(role))
+  mutate(role = str_to_title(role)) %>% 
+  mutate(demographic = if_else(demographic == "Internatl", 
+                               "International", demographic))
