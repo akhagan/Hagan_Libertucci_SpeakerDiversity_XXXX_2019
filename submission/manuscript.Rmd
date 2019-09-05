@@ -15,7 +15,7 @@ geometry: margin=1.0in
 ######################################################################
 #----------------- Read in necessary libraries -------------------#
 ######################################################################
-deps = c("kableExtra","knitr","rmarkdown","hexbin","lubridate", "tidyverse", "markdown", "formattable");
+deps = c("knitr","rmarkdown", "lubridate", "tidyverse", "markdown");
 for (dep in deps){
   library(dep, verbose=FALSE, character.only=TRUE)
 }
@@ -64,7 +64,7 @@ Supplemental:
 
 ## Keywords
 
-inclusion, diversity, 
+inclusion, diversity, invited speakers, academia, graduate programs
 
 \newpage
 
@@ -72,24 +72,32 @@ inclusion, diversity,
 
 500 words
 
-Representation of women and underrepresented minorities (URM) in science, technology, engineering, and math (STEM) in the workforce remains low despite equal enrollment in undergraduate STEM majors. Longitudinal data indicates that these discrepancies might be partially explained by low retention of women and URM in undergraduate STEM programs where academic performance is a key predictor of retention. A growing body of evidence suggests that women and URM underperform in introductory science courses compared to their white male colleagues, even when representation is equal. Additionally, there is evidence to suggest that women and URM participate less in class, which could inhibit the learning process and subsequent success. A prevailing hypothesis to explain achievement gaps and a lack of participation in class for women and URM is that, many students have an unconscious fear of being seen as a negative stereotype, termed stereotype threat. This is prevalent in fields that have historically been dominated by white males, such as in STEM. In order to retain a diverse population of students in STEM, in an effort to ensure all students have equal opportunities and resources to be successful, underperformance and a lack of participation in introductory science courses needs to be addressed. One mechanism to address the issue is through the use of inclusive teaching practices –teaching methods that promote the full participation, learning, and success of all students.      
+Representation of white women and historically underrepresented minorities (HURM) in science, technology, engineering, and math (STEM) in the workforce remains low despite equal enrollment in undergraduate STEM majors. Longitudinal data indicates that these discrepancies might be partially explained by low retention of women and URM in undergraduate STEM programs where academic performance is a key predictor of retention. A growing body of evidence suggests that women and URM underperform in introductory science courses compared to their white male colleagues, even when representation is equal. Additionally, there is evidence to suggest that women and URM participate less in class, which could inhibit the learning process and subsequent success. A prevailing hypothesis to explain achievement gaps and a lack of participation in class for women and URM is that, many students have an unconscious fear of being seen as a negative stereotype, termed stereotype threat. This is prevalent in fields that have historically been dominated by white males, such as in STEM. In order to retain a diverse population of students in STEM, in an effort to ensure all students have equal opportunities and resources to be successful, underperformance and a lack of participation in introductory science courses needs to be addressed. One mechanism to address the issue is through the use of inclusive teaching practices –teaching methods that promote the full participation, learning, and success of all students.      
 
-##Methods
+## Methods
 
-**Data collection and demographic determination.** Historical information on invited speakers and their hosts were obtained from the departmental records of five academic years (Fall 2014 - Spring 2019). Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point were not considered "invited speakers". The list of current trainees (Spring 2019), was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
+**Data collection and demographic determination.** Historical information on invited speakers and their hosts were obtained from the departmental records of five academic years (Fall 2014 - Spring 2019). Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point could not also be considered "invited speakers". The list of current trainees (Spring 2019), was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
   Demographics for invited speakers, hosts, and trainees were hand-coded using personal knowledge, photos, and CVs. Presenting gender was assigned using a binary system (man/woman). Race/ethnicity was assigned using the current U.S. Census definition where "Caucasian" includes those of Middle Eastern, European, and Russian descent. Historically Underrepresented Minority (HURM) individuals are restricted to those with African-American, Indigenous and/or Hispanic heritage. International indviduals were either visiting the US at the time of their talk, or immigrated to the US as an adult. Individual assignments can be found in the anonymized dataset.
   
-**Code and data availability.** The anonymized data, code for all analysis steps and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/.
+**Code and data availability.** The anonymized data, code for all analysis steps, and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/.
 
-## Results 
-
-__Model selection and pipeline construction__
+## Results and Discussion
 
 ![Figure 1.](). 
 
-## Discussion
-
 500 words. In this study 
+
++ there are speakers who have URM status, but it wasn't readily apparent from the internet/CV 
++ perspective is often as/more important than self-identification -- in addition to self-selecting on Diversify lists, consider sharing more about their past
++ idea for departments to invite speakers to share about their personal story as well as their science
++ use Diversify sources
++ US-serving institutions, need to pay attention to US-HURM
+
+## Conclusion
+
+## Acknowledgements
+
+We thank Harry Mobley and the Department of Microbiology & Immunology, University of Michigan for their support and input. We would also like to acknowledge Nick Lesniak and Dr. Ariangela Kozick for their comments and suggestions. 
 
 ## References
 
