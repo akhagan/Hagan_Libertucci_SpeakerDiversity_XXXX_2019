@@ -18,7 +18,8 @@ get_percent <- function(x, y){
 
 #data setup----
 speaker_data <- read_csv("../data/speaker_dataset_14-19.csv") %>% 
-  mutate(Speaker_id = rownames(.)) %>% 
+  mutate(Speaker_id = rownames(.),
+         Host_id = rownames(.)) %>% 
   rename(Speaker_Caucasian = Speaker_caucasian, 
          Speaker_Gender = Speaker_gender)
 
@@ -30,7 +31,21 @@ tidy_speaker <- speaker_data %>%
   rename(id = Speaker_id) %>% 
   mutate(demographic = if_else(demographic == "Internatl", 
                                "International", demographic))
-
+tidy_host <- speaker_data %>% 
+  select(contains("Host")) %>% 
+  gather(Host_gender:Host_Internatl, 
+         key = demographic, value = value) %>% 
+  separate(demographic, into = c("role", "demographic"), sep = "_") %>% 
+  rename(id = Host_id) %>% 
+  mutate(demographic = case_when(
+    demographic == "Internatl" ~ "International",
+    demographic == "gender" ~ "Gender",
+    demographic == "caucasian" ~ "Caucasian",
+    TRUE ~ demographic
+  )) %>% 
+  select(-role) %>% 
+  rename(role = Host) 
+  
 trainee_data <- read_csv("../data/trainee_data_19.csv") %>% 
   mutate(id = rownames(.))
 
