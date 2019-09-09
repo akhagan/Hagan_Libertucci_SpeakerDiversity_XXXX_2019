@@ -11,11 +11,11 @@ geometry: margin=1.0in
 
 ---
 
-```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE}
+```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE, include=FALSE}
 ######################################################################
 #----------------- Read in necessary libraries -------------------#
 ######################################################################
-deps = c("knitr","rmarkdown", "lubridate", "tidyverse", "markdown");
+deps = c("knitr","rmarkdown", "markdown");
 for (dep in deps){
   library(dep, verbose=FALSE, character.only=TRUE)
 }
@@ -23,14 +23,11 @@ for (dep in deps){
 #-------------- Define the chunk options ----------------#
 ######################################################################
 opts_chunk$set("tidy" = TRUE)
-opts_chunk$set("echo" = FALSE)
-opts_chunk$set("eval" = TRUE)
-opts_chunk$set("warning" = FALSE)
-opts_chunk$set("cache" = FALSE)
 ```
 
-```{r LoadData, eval=TRUE, echo=FALSE, cache=FALSE, warning=FALSE, message=FALSE}
+```{r LoadData, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
 source("../code/load_data.R")
+source("../code/get_figures.R")
 ```
 
 \vspace{30mm}
@@ -39,7 +36,7 @@ Running title: Invited Speaker Diversity Does Not Reflect Trainee Diversity
 
 \vspace{35mm}
 
-Ada K. Hagan, Ph.D.${^1}$^ and Josie Libertucci, Ph.D.${^2}$^
+Ada K. Hagan, Ph.D.${^1}$^, Rebecca M. Pollet, Ph.D.${^1}$^, and Josie Libertucci, Ph.D.${^2}$^
 
 \vspace{35mm}
 
@@ -72,7 +69,7 @@ inclusion, diversity, invited speakers, academia, graduate programs
 
 500 words
 
-Representation of white women and historically underrepresented minorities (HURM) in science, technology, engineering, and math (STEM) in the workforce remains low despite equal enrollment in undergraduate STEM majors. Longitudinal data indicates that these discrepancies might be partially explained by low retention of women and URM in undergraduate STEM programs where academic performance is a key predictor of retention. A growing body of evidence suggests that women and URM underperform in introductory science courses compared to their white male colleagues, even when representation is equal. Additionally, there is evidence to suggest that women and URM participate less in class, which could inhibit the learning process and subsequent success. A prevailing hypothesis to explain achievement gaps and a lack of participation in class for women and URM is that, many students have an unconscious fear of being seen as a negative stereotype, termed stereotype threat. This is prevalent in fields that have historically been dominated by white males, such as in STEM. In order to retain a diverse population of students in STEM, in an effort to ensure all students have equal opportunities and resources to be successful, underperformance and a lack of participation in introductory science courses needs to be addressed. One mechanism to address the issue is through the use of inclusive teaching practices –teaching methods that promote the full participation, learning, and success of all students.      
+Representation of white women and historically underrepresented minorities (HURM) in science, technology, engineering, and math (STEM) in the workforce remains low despite equal enrollment in undergraduate STEM majors. Longitudinal data indicates that these discrepancies might be partially explained by low retention of women and URM in undergraduate STEM programs where academic performance is a key predictor of retention. A growing body of evidence suggests that women and URM under-perform in introductory science courses compared to their white male colleagues, even when representation is equal. Additionally, there is evidence to suggest that women and URM participate less in class, which could inhibit the learning process and subsequent success. A prevailing hypothesis to explain achievement gaps and a lack of participation in class for women and URM is that, many students have an unconscious fear of being seen as a negative stereotype, termed stereotype threat. This is prevalent in fields that have historically been dominated by white males, such as in STEM. In order to retain a diverse population of students in STEM, in an effort to ensure all students have equal opportunities and resources to be successful, under-performance and a lack of participation in introductory science courses needs to be addressed. One mechanism to address the issue is through the use of inclusive teaching practices –teaching methods that promote the full participation, learning, and success of all students.      
 
 + introduce invited speaker series - what are the goals, who attends, etc.
 
@@ -81,31 +78,34 @@ Representation of white women and historically underrepresented minorities (HURM
 + more difficult to see trends over long time period -- asked cumulative trends of speakers over 5 year period, "normative" to trainees in the department
 
 ## Methods
+Each academic year, each faculty member in the Department of Microbiology and Immunology at the University of Michigan has the opportunity to invite one speaker per year for a weekly seminar series. Some of these seminar slots are dedicated to named lectureships, which are decided by committee, and three trainee-invited speakers. We analyzed the gender and demographics of invited speakers and faculty hosts for five academic years (Fall 2014 - Spring 2019), and the current trainees when the data were analyzed (Spring 2019).
 
-**Data collection and demographic determination.** Historical information on invited speakers and their hosts were obtained from the departmental records of five academic years (Fall 2014 - Spring 2019). Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point could not also be considered "invited speakers". The list of faculty hosts was used as a proxy for faculty demographics since each faculty member has the opportunity to invite one speaker per year. The list of trainees (Spring 2019), was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
-  Demographics for invited speakers, hosts, and trainees were hand-coded using personal knowledge, photos, and CVs. Presenting gender was assigned using a binary system (man/woman). Race/ethnicity was assigned using the current U.S. Census definition where "Caucasian" includes those of Middle Eastern, European, and Russian descent. Historically Underrepresented Minority (HURM) individuals are restricted to those with African-American, Indigenous and/or Hispanic heritage. International indviduals were either visiting the US at the time of their talk, or immigrated to the US as an adult. Individual assignments can be found in the anonymized dataset.
-  
-**Code and data availability.** The anonymized data, code for all analysis steps, and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/. Template and complete instructions for generating a field-specific Diversity website are available at https://github.com/diversifymicrobiology/DiversifyMicrobiology.github.io/.
+Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point could not also be considered "invited speakers". The list of faculty hosts was used as a proxy for faculty demographics since as hosts, these faculty members are visible representatives of the department. The list of trainees was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
+
+We hand-coded demographics using personal knowledge, photos, and CVs. The presenting gender if each invidual was assigned using a binary system (man/woman). Other assigned demographics included Caucasian, Historically Under-represented Minority (HURM), and International, each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous and/or Hispanic heritage while International individuals were either visiting the US at the time of their talk, or immigrated to the US as an adult. 
 
 ## Results and Discussion
 
-To understand the representation of women, we compared the proportion of individuals presenting as women in each academic role. At the trainee level, more than half of students and postdoctoral fellows were women. That dropped to X% of faculty hosts and X% of the invited speakers. [what about lectureships?] The proportion of women as faculty hosts and speakers is equvialent to global estimates of women microbiologists (Elseiver). Several papers have investigated the representation of women at scientific conferences, however, we only identified one that focused on invited speakers at university-sponsored events (Nittrouer, 2018). [Compare to our findings]
+To understand the representation of women, we compared the proportion of individuals presenting as women in each academic role. At the trainee level, more than half of students and postdoctoral fellows were women. That dropped to X% of faculty hosts and X% of the invited speakers. 10 of 31 lectureships [what about lectureships?] The proportion of women as faculty hosts and speakers is equivalent to global estimates of women microbiologists (Elseiver). Several papers have investigated the representation of women at scientific conferences, however, we only identified one that focused on invited speakers at university-sponsored events (Nittrouer, 2018). [Compare to our findings]
 
-Assumptions about competency and dedication may negatively impact the liklihood of women microbiologists being invited as speakers. The  dedication of women with family to their work is also more likely to be questioned than that of their colleagues, even men who also have children. For instance, the percieved prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigous nature of these inviations), causing the faculty member to invite a different colleague who they feel is less likely to turn them down. Departments have different processes and criteria for selecting invited speakers, but want to bring the best scientists possible. It may be that the definition of "best" poses a problem to women, who need three-times as many publications as their men collegues to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers considerably. Alternately, pre-tenure faculty members invite presitgous, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likihood to be considered for either tenure and as possible source of tenure letters.
+Assumptions about competency and dedication may negatively impact the likelihood of women microbiologists being invited as speakers. The dedication of women with family to their work is also more likely to be questioned than that of their colleagues, even men who also have children. For instance, the perceived prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigious nature of these invitations), causing the faculty member to invite a different colleague who they feel is less likely to turn them down. Departments have different processes and criteria for selecting invited speakers, but want to bring the best scientists possible. It may be that the definition of "best" poses a problem to women, who need three-times as many publications as their men colleges to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers considerably. Alternately, pre-tenure faculty members invite prestigious, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likelihood to be considered for either tenure and as possible source of tenure letters.
 
-Our analysis identified an overrepresentation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees. Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to lump individuals of HURM and international backgrounds together to improve diversity statistics. We argue that it is important to distinguish these two groups separately since each face different issues in the US and the academy. For instance, international scientists face more issues with visas while HURMs must contend with a country who systematically shuts them out despite an infrastructure that was built on their historical land and labor. For this reason, and to provide more resolution to the analysis, individuals were also given additional designations such as HURM and international. We observed declines in the representation of HURM and international faculty and speakers relative to the trainees. [Lectureships]. 
+Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees. Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to lump individuals of HURM and international backgrounds together to improve diversity statistics. We argue that it is important to distinguish these two groups separately since each face different issues in the US and the academy. For instance, international scientists face more issues with visas while HURMs must contend with a country who systematically shuts them out despite an infrastructure that was built on their historical land and labor. For this reason, and to provide more resolution to the analysis, individuals were also given additional designations such as HURM and international. We observed declines in the representation of HURM and international faculty and speakers relative to the trainees. 
 
+[Lectureships]. 22, 3, 6, (cauc, HURM, Internatl, respectively) -- 12, 10, 5, 0 (CaucM, CaucW, Non-CaucM, Non-CaucW)
+
+## Call to Action
 + Improving speaker diversity
-    + US-serving institutions have particular responsibility to those historically supressed populations
+    + US-serving institutions have particular responsibility to those historically suppressed populations
     + to improve retention of white women & HURMs, each group needs equivalent representation to counteract biases and improve self-efficacy
-    + recall bias not the only issue, also not always possible to identify members of historically underserved communities
+    + recall bias not the only issue, also not always possible to identify members of historically under-served communities
     + example: there are speakers who have URM status, but it wasn't readily apparent from the internet/CV 
     + perspective is often as/more important than self-identification 
 
 + Development of Diversify tools
     + inspired by EEB/Chemistry
     + tool for members of URM groups to self-identify & for others to use to find diverse candidates
-    + describe maintanence of lists (Rebecca)
+    + describe maintenance of lists (Rebecca)
     + describe website creation
     
 + Other resources/ideas
@@ -115,14 +115,18 @@ Our analysis identified an overrepresentation of Caucasian individuals as hostin
 ## Conclusion
 
 + increased retention of white women & HURMS -- increasing representation of 
-+ tools available to create field specific lists of H underserved
++ tools available to create field specific lists of H under-served
 
 ## Acknowledgements
 
 We thank Harry Mobley and the Department of Microbiology & Immunology, University of Michigan for their support and input. We would also like to acknowledge Nick Lesniak and Dr. Ariangela Kozick for their comments and suggestions. 
 
 ## Author Contributions
-A.K.H. collected the data, assigned demographics, analyzed the data, and created the website. R.P. created the lists, forms, and website content. J.L. wrote the introduction and provided conceptual advice. All authors contributed to the final manuscript.
+A.K.H. collected the data, assigned demographics, analyzed the data, and created the website. R.P. created the Google lists, forms, and website content and the description of their maintenance. J.L. wrote the introduction and provided conceptual advice. All authors contributed to the final manuscript.
+
+## Code and data availability
+The anonymized data, code for all analysis steps, and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/. Template and complete instructions for generating a field-specific Diversity website are available at https://github.com/diversifymicrobiology/DiversifyMicrobiology.github.io/.
+
 
 ![Figure 1.](). 
 

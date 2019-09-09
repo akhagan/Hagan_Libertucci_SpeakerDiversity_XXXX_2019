@@ -10,12 +10,14 @@ demo_combined <- tidy_host %>%
   
 demo_combined$role <- fct_relevel(demo_combined$role, dat_levels)
 
-demo_combined %>% 
+demo_plot <- demo_combined %>% 
   ggplot()+
   geom_col(aes(x = role, y = prop_y, fill = role), alpha = 0.75)+
   facet_wrap(~demographic)+
-  labs(x = "Academic Role", y = "Proportion of Population")+
+  labs(x = "Academic Role\n", y = "Proportion of Population")+
   set_role_colors +
-  my_theme_horiz
+  my_theme_horiz +
+  theme(axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
 
 #add host demo
