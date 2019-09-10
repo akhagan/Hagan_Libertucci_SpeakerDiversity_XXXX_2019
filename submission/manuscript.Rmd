@@ -36,7 +36,7 @@ Running title: Invited Speaker Diversity Does Not Reflect Trainee Diversity
 
 \vspace{35mm}
 
-Ada K. Hagan, Ph.D.${^1}$^, Rebecca M. Pollet, Ph.D.${^1}$^, and Josie Libertucci, Ph.D.${^2}$^
+Ada K. Hagan, Ph.D.${^1\dagger}$, Rebecca M. Pollet, Ph.D.${^1}$, and Josie Libertucci, Ph.D.${^2\dagger}$
 
 \vspace{35mm}
 
@@ -47,9 +47,9 @@ $\dagger$ To whom correspondence should be addressed: akhagan@umich.edu or liber
 2\. Department of Medicine, McMaster University, Hamilton, Ontario, Canada
 
 
-Figures:
+Figures: 1
 
-Tables:
+Tables: 1
 
 Supplemental:
 
@@ -78,21 +78,23 @@ Representation of white women and historically underrepresented minorities (HURM
 + more difficult to see trends over long time period -- asked cumulative trends of speakers over 5 year period, "normative" to trainees in the department
 
 ## Methods
-Each academic year, each faculty member in the Department of Microbiology and Immunology at the University of Michigan has the opportunity to invite one speaker per year for a weekly seminar series. Some of these seminar slots are dedicated to named lectureships, which are decided by committee, and three trainee-invited speakers. We analyzed the gender and demographics of invited speakers and faculty hosts for five academic years (Fall 2014 - Spring 2019), and the current trainees when the data were analyzed (Spring 2019).
+Each academic year, each faculty member in the Department of Microbiology and Immunology at the University of Michigan has the opportunity to invite one speaker per year for a weekly seminar series. Some of these seminar slots are dedicated to named lectureships, which are decided by committee, and three trainee-invited speakers. We analyzed the demographics of invited speakers and faculty hosts for five academic years (Fall 2014 - Spring 2019), and compared them to the current trainees when the data were analyzed (Spring 2019). Each speaker was only counted once and those listed as departmental faculty members or as a "host" at any point could not also be considered "invited speakers". The list of faculty hosts was used as a proxy for faculty demographics since as hosts, these faculty members are visible representatives of the department. The trainee lists were obtained from department listservs that included masters students, doctoral students, and post-doctoral fellows.
 
-Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point could not also be considered "invited speakers". The list of faculty hosts was used as a proxy for faculty demographics since as hosts, these faculty members are visible representatives of the department. The list of trainees was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
+We hand-coded demographics using personal knowledge, photos, and CVs. The presenting gender of each individual was assigned using a binary system (man/woman). Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to consider both  together. We believe that it is important to distinguish between individuals of historically under-represented minority (HURM) and international backgrounds since each face different issues in the US and the academy and thus require different support systems. For instance, international scientists must contend with visa issues while HURMs have the trauma associated with living in a country who systematically shuts them out (despite an infrastructure that was built on their historical land and labor). For this reason, other assigned demographics included Caucasian, Historically Under-represented Minority (HURM), and International, each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous and/or Hispanic heritage while International individuals were either visiting the US at the time of their seminar, or immigrated to the US as an adult. 
 
-We hand-coded demographics using personal knowledge, photos, and CVs. The presenting gender if each invidual was assigned using a binary system (man/woman). Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to consider both individuals of historically under-represented minority (HURM) and international backgrounds together. We argue that it is important to distinguish these two groups separately since each face different issues in the US and the academy and thus require different support systems. For instance, international scientists must contend with visa issues while HURMs have the trauma associated with living in a country who systematically shuts them out (despite an infrastructure that was built on their historical land and labor). For this reason, other assigned demographics included Caucasian, Historically Under-represented Minority (HURM), and International, each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous and/or Hispanic heritage while International individuals were either visiting the US at the time of their talk, or immigrated to the US as an adult. 
+## Results
 
-## Results and Discussion
+To understand the representation of women, we compared the proportion of women in each academic role. At the trainee level, more than half of students and postdoctoral fellows were women. That dropped to `r gender_combined[[1,5]]`% of faculty hosts and `r gender_combined[[3,5]]`% of the invited speakers (Fig. 1A). Of 27 lectureships over the five year period, `r get_percent(10, 27)`% were awarded to women. The proportion of women as faculty hosts and speakers is equivalent to global estimates that 40% of microbiologists are women (Elseiver), with a slightly lower representation of women in lectureships. 
 
-To understand the representation of women, we compared the proportion of individuals presenting as women in each academic role. At the trainee level, more than half of students and postdoctoral fellows were women. That dropped to X% of faculty hosts and X% of the invited speakers. 10 of 31 lectureships [what about lectureships?] The proportion of women as faculty hosts and speakers is equivalent to global estimates of women microbiologists (Elseiver). Several papers have investigated the representation of women at scientific conferences, however, we only identified one that focused on invited speakers at university-sponsored events (Nittrouer, 2018). [Compare to our findings]
+Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees (Fig. 1B). We also observed declines in the representation of HURM and international faculty and speakers relative to the trainees, particularly postdocs (Fig 1B). Caucasian scientists also dominated lectureships, comprising `r get_percent(22, 27)`% of those awarded (Fig. 1C). Three and six lectureships were awarded to HURM and International scientists, respectively. Because the intersection of identities can compound biases and outcomes, we further examined the more prestigous lectureships by gender and Caucasian status. Caucasian men and women accounted for `r get_percent(12, 27)`% and `r get_percent(10, 27)`% of the lectureships, respectively, compared to `r get_percent(5, 27)`% non-Caucasian men and zero non-Caucasian women (Fig. 1D).
 
-Assumptions about competency and dedication may negatively impact the likelihood of women microbiologists being invited as speakers. The dedication of women with family to their work is also more likely to be questioned than that of their colleagues, even men who also have children. For instance, the perceived prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigious nature of these invitations), causing the faculty member to invite a different colleague who they feel is less likely to turn them down. Departments have different processes and criteria for selecting invited speakers, but want to bring the best scientists possible. It may be that the definition of "best" poses a problem to women, who need three-times as many publications as their men colleges to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers considerably. Alternately, pre-tenure faculty members invite prestigious, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likelihood to be considered for either tenure and as possible source of tenure letters.
+## Discussion
 
-Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees. We observed declines in the representation of HURM and international faculty and speakers relative to the trainees. 
+Several papers have investigated the representation of women at scientific conferences, however, we have only identified one that focused on invited speakers at universities (Nittrouer, 2018). In their study, Nittrouer et. al., examined 3,652 talks at 50 U.S. institutions in 2013 - 2014 and found that women faculty are less likely to be invited speakers, despite similar acceptance rates.
 
-[Lectureships]. 22, 3, 6, (cauc, HURM, Internatl, respectively) -- 12, 10, 5, 0 (CaucM, CaucW, Non-CaucM, Non-CaucW)
+These results suggest that women faculty are less likely to invited as speakers, a decision that may be negatively impacted by assumptions about competency and dedication. The dedication of women who have children to their work is perceived to be less than that of their colleagues, e.g., men who also have children. The perceived prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigious nature of these invitations and evidence to the contrary), causing the faculty member to invite a different colleague who they feel is more likely to agree. Departments have different processes and criteria for selecting invited speakers, but want to bring the best scientists possible. It may also be that the definition of "best" poses a problem to women, who need three-times as many publications as their men colleges to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers. Alternately, pre-tenure faculty members invite prestigious, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likelihood to be considered for either tenure and as possible source of tenure letters.
+
++ studies that go beyond gender -- e.g., race/ethnicity (this seems to be the first)
 
 ## Call to Action
 + Improving speaker diversity
@@ -130,7 +132,29 @@ The anonymized data, code for all analysis steps, and an Rmarkdown version of th
 
 ![Figure 1.](Figure_1.png) 
 
-Table 1. List of Suggestions & Resources
+\newpage
+
+\begin{center}
+\captionof{table}{List of suggestions and resources to increase invited speaker diversity.}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+
+\rowcolor{lightgray}
+\textbf{Suggestion} & \textbf{Description} & \textbf{Resource} \\ \hline
+
+Lab-invited speakers & \makecell[l]{Faculty members can request \\suggestions from trainees} & \\ \hline
+
+Use a list & \makecell[l]{Many lists of scientists from \\under-represented and underserved \\groups are available} &  \makecell[l]{https://DiversifyMicrobiology.\\github.io/resources}\\ \hline
+
+Create a list & \makecell[l]{Use the GitHub template \\ create a self-nomination list and \\resource for your field} & \makecell[l]{https://github.com/diversifymicrobiology/\\DiversifyMicrobiology.github.io} \\ \hline
+
+Highlight the journey & \makecell[l]{Invite all speakers to spend \\a few moments describing their \\personal science journey} & \\ \hline
+
+\end{tabular}
+\end{center}
+
+\newpage
 
 ## References
 

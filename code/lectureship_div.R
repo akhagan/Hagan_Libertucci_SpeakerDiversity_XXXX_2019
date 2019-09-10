@@ -11,6 +11,7 @@ lectureship <- speaker_data %>%
                                "International", demographic))
 
 lectureship_demo_plot <- lectureship %>% 
+  filter(demographic != "Gender") %>% 
   filter(value == "y") %>% 
   ggplot(aes(x = value))+
   geom_bar(aes(y = (..count..)/sum(..count..), fill = value))+
