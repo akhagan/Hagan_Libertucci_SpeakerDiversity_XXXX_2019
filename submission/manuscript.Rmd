@@ -82,7 +82,7 @@ Each academic year, each faculty member in the Department of Microbiology and Im
 
 Each speaker was only counted once and any departmental faculty members or those listed as a "host" at any point could not also be considered "invited speakers". The list of faculty hosts was used as a proxy for faculty demographics since as hosts, these faculty members are visible representatives of the department. The list of trainees was obtained from department listservs and included masters students, doctoral students, and post-doctoral fellows.
 
-We hand-coded demographics using personal knowledge, photos, and CVs. The presenting gender if each invidual was assigned using a binary system (man/woman). Other assigned demographics included Caucasian, Historically Under-represented Minority (HURM), and International, each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous and/or Hispanic heritage while International individuals were either visiting the US at the time of their talk, or immigrated to the US as an adult. 
+We hand-coded demographics using personal knowledge, photos, and CVs. The presenting gender if each invidual was assigned using a binary system (man/woman). Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to consider both individuals of historically under-represented minority (HURM) and international backgrounds together. We argue that it is important to distinguish these two groups separately since each face different issues in the US and the academy and thus require different support systems. For instance, international scientists must contend with visa issues while HURMs have the trauma associated with living in a country who systematically shuts them out (despite an infrastructure that was built on their historical land and labor). For this reason, other assigned demographics included Caucasian, Historically Under-represented Minority (HURM), and International, each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous and/or Hispanic heritage while International individuals were either visiting the US at the time of their talk, or immigrated to the US as an adult. 
 
 ## Results and Discussion
 
@@ -90,7 +90,7 @@ To understand the representation of women, we compared the proportion of individ
 
 Assumptions about competency and dedication may negatively impact the likelihood of women microbiologists being invited as speakers. The dedication of women with family to their work is also more likely to be questioned than that of their colleagues, even men who also have children. For instance, the perceived prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigious nature of these invitations), causing the faculty member to invite a different colleague who they feel is less likely to turn them down. Departments have different processes and criteria for selecting invited speakers, but want to bring the best scientists possible. It may be that the definition of "best" poses a problem to women, who need three-times as many publications as their men colleges to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers considerably. Alternately, pre-tenure faculty members invite prestigious, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likelihood to be considered for either tenure and as possible source of tenure letters.
 
-Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees. Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to lump individuals of HURM and international backgrounds together to improve diversity statistics. We argue that it is important to distinguish these two groups separately since each face different issues in the US and the academy. For instance, international scientists face more issues with visas while HURMs must contend with a country who systematically shuts them out despite an infrastructure that was built on their historical land and labor. For this reason, and to provide more resolution to the analysis, individuals were also given additional designations such as HURM and international. We observed declines in the representation of HURM and international faculty and speakers relative to the trainees. 
+Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees. We observed declines in the representation of HURM and international faculty and speakers relative to the trainees. 
 
 [Lectureships]. 22, 3, 6, (cauc, HURM, Internatl, respectively) -- 12, 10, 5, 0 (CaucM, CaucW, Non-CaucM, Non-CaucW)
 
@@ -119,16 +119,16 @@ Our analysis identified an over-representation of Caucasian individuals as hosti
 
 ## Acknowledgements
 
-We thank Harry Mobley and the Department of Microbiology & Immunology, University of Michigan for their support and input. We would also like to acknowledge Nick Lesniak and Dr. Ariangela Kozick for their comments and suggestions. 
+We thank Dr. Harry Mobley and the Department of Microbiology & Immunology, University of Michigan for their input and financial support that enabled publication of our manuscript. We would also like to acknowledge Nick Lesniak and Dr. Ariangela Kozick for their comments and suggestions. 
 
 ## Author Contributions
-A.K.H. collected the data, assigned demographics, analyzed the data, and created the website. R.P. created the Google lists, forms, and website content and the description of their maintenance. J.L. wrote the introduction and provided conceptual advice. All authors contributed to the final manuscript.
+A.K.H. collected the data, assigned demographics, analyzed the data, and created the website. R.M.P. created the Google lists, forms, and website content and the description of their maintenance. J.L. wrote the introduction and provided conceptual advice. All authors contributed to the final manuscript.
 
 ## Code and data availability
 The anonymized data, code for all analysis steps, and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/. Template and complete instructions for generating a field-specific Diversity website are available at https://github.com/diversifymicrobiology/DiversifyMicrobiology.github.io/.
 
 
-![Figure 1.](). 
+![Figure 1.](Figure_1.png) 
 
 Table 1. List of Suggestions & Resources
 
