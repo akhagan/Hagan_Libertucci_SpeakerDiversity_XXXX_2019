@@ -3,12 +3,12 @@ title: '**Department Invited Speakers Do Not Reflect Trainee Diversity**'
 csl: mbio.csl
 fontsize: 10pt
 output:
+  word_document: default
   pdf_document:
     includes:
       in_header: header.tex
     keep_tex: yes
 geometry: margin=1.0in
-
 ---
 
 ```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE, include=FALSE}
@@ -90,34 +90,24 @@ Our analysis identified an over-representation of Caucasian individuals as hosti
 
 ## Discussion
 
-Several papers have investigated the representation of women at scientific conferences, however, we have only identified one that focused on invited speakers at universities (Nittrouer, 2018). In their study, Nittrouer et. al., examined 3,652 talks at 50 U.S. institutions in 2013 - 2014 and found that women faculty are less likely to be invited speakers, despite similar acceptance rates.
+Several papers have investigated the representation of women at scientific conferences, however, we have only identified one that focused on invited speakers at universities (Nittrouer, 2018). In their study, Nittrouer et. al., examined 3,652 talks at 50 U.S. institutions in 2013 - 2014 and found that women faculty are less likely to be invited speakers, despite similar acceptance rates. These results suggest that women faculty are less often invited as speakers, a decision that may be negatively impacted by assumptions about competency and dedication. The dedication of women who have children to their work is perceived to be less than that of their colleagues, i.e., men who also have children. The perceived prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigious nature of these invitations and evidence to the contrary). As a result, the faculty member invites a different colleague who they feel is more likely to agree (and is a man). Departments have different processes and criteria for selecting invited speakers, but it is a matter of pride to bring the best scientists possible. It may be that the definition of "best" poses a problem to women, who need three-times as many publications as their men colleges to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers. Another scenario is that pre-tenure faculty members invite prestigious, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likelihood to be considered for either tenure or as possible source of tenure letters.
 
-These results suggest that women faculty are less likely to invited as speakers, a decision that may be negatively impacted by assumptions about competency and dedication. The dedication of women who have children to their work is perceived to be less than that of their colleagues, e.g., men who also have children. The perceived prioritization and commitments of women to family over work may cause faculty to doubt their acceptance of a speaking invitation (despite the prestigious nature of these invitations and evidence to the contrary), causing the faculty member to invite a different colleague who they feel is more likely to agree. Departments have different processes and criteria for selecting invited speakers, but want to bring the best scientists possible. It may also be that the definition of "best" poses a problem to women, who need three-times as many publications as their men colleges to be considered equally competent. Some departments only invite tenured faculty, which severely limits the number of potential women speakers. Alternately, pre-tenure faculty members invite prestigious, tenured faculty in their field to network and secure letters for their own tenure package. The increased burden of women to prove competency decreases their likelihood to be considered for either tenure and as possible source of tenure letters.
+We have not been able to identify any other publications examining scientific speaker diversity beyond gender. This seems to be the first. This is concerning since conclusions drawn from gender-based studies are often framed, and considered, to be applicable to other marginalized groups (e.g., HURM). This is a flawed assumption. While there is no doubt some overlap, each group remains marginalized due to a complex set of factors that are unique to each group and cannot always be solved by gender-based solutions. US-serving institutions, such as the University of Michigan have a particular responsibility to the historically suppressed populations included in our definition of HURMs. We therefore implore US institutions to apply this framing to their discussions and research. 
 
-+ studies that go beyond gender -- e.g., race/ethnicity (this seems to be the first)
+Our data support the advancement of social role theory, which states that to improve retention of white women & HURMs, each group needs equivalent representation to counteract biases and improve self-efficacy. Implict biases that affect perceptions of marginalized groups are the primary issue, but we must acknowledge that it is not always possible to identify members of historically under-served communities. For instance, after data analysis, we learned that at least one speaker in our data set is a member of a HURM group, but it wasn't readily apparent from their internet presence or CV. This limitation makes two important points: that perspective is often as, if not more, important than self-identification with regards to biased outcomes, and that we need better tools to identify members of marginalized groups. 
 
-## Call to Action
-+ Improving speaker diversity
-    + US-serving institutions have particular responsibility to those historically suppressed populations
-    + to improve retention of white women & HURMs, each group needs equivalent representation to counteract biases and improve self-efficacy
-    + recall bias not the only issue, also not always possible to identify members of historically under-served communities
-    + example: there are speakers who have URM status, but it wasn't readily apparent from the internet/CV 
-    + perspective is often as/more important than self-identification 
+## Building Diversify
+
+To help address this issue, we make some suggestions (Table 1) and have developed a resource to identify scientists who are members of marginalized and/or historically under-served groups. Motivated by a lack of such resources and inspired by similar resources--DiversifyEEB and DiversifyChemistry--we created DiversifyMicrobiology and DiversifyImmunology. These resources are a tool for symposium organziers, award committees, search committees and other scientists to identify individuals to diversify their pools. Additionally, we have built these as a tool for use by other fields and organizations to create their own lists. Importantly, since these lists are compiled by self-nomination, we can ensure that only scientists comfortable revealing their marginalized identities are included. 
 
 + Development of Diversify tools
-    + inspired by EEB/Chemistry
-    + tool for members of URM groups to self-identify & for others to use to find diverse candidates
     + describe maintenance of lists (Rebecca)
-    + describe website creation
     
-+ Other resources/ideas
-    + student/lab invited speakers -- improve diversity of suggestions (fields/careers)
-    + departments to invite speakers to share about their personal story as well as their science
+The website provides an interface to the Google forms and spreadsheets with template pages for viewing the list, adding a name to the list, and finding additional resources. Importantly, our website creation tool is hosted for free by GitHub, which provides a free website for each GitHub organization (citation). Basic tools and skills required to set up a Diversify site include knowledge of, or experience with, the version control tool git, the webtool GitHub, and a text editor. A tutorial in the DiversifyMicrobiology repository on GitHub provides links to these resources and instructions for adapting the tool to your own field. 
 
 ## Conclusion
 
-+ increased retention of white women & HURMS -- increasing representation of 
-+ tools available to create field specific lists of H under-served
+To increase the retention of white women and HURMS in STEM, they must also be represented as experts. However, the invited speaker diversity at one department does not represent the diversity of trainees. There is a lack of research on invited speakers examining factors other than gender. To facilite the identification and recruitment of individuals in these historically under-served groups, we have built a tool to create self-nominated, field-specific lists.
 
 ## Acknowledgements
 
