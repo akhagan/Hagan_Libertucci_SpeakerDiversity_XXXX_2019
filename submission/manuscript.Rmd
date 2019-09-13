@@ -3,7 +3,6 @@ title: '**Department Invited Speakers Do Not Reflect Trainee Diversity**'
 csl: mbio.csl
 fontsize: 10pt
 output:
-  word_document: default
   pdf_document:
     includes:
       in_header: header.tex
@@ -11,21 +10,16 @@ output:
 geometry: margin=1.0in
 ---
 
-```{r knitr_settings, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE, include=FALSE}
-######################################################################
+```{r setup, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE, include=FALSE}
 #----------------- Read in necessary libraries -------------------#
-######################################################################
 deps = c("knitr","rmarkdown", "markdown");
 for (dep in deps){
   library(dep, verbose=FALSE, character.only=TRUE)
 }
-######################################################################
 #-------------- Define the chunk options ----------------#
-######################################################################
 opts_chunk$set("tidy" = TRUE)
-```
 
-```{r LoadData, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+#-------------- Read in data and figure ----------------#
 source("../code/load_data.R")
 source("../code/get_figures.R")
 ```
@@ -50,8 +44,6 @@ $\dagger$ To whom correspondence should be addressed: akhagan@umich.edu or liber
 Figures: 1
 
 Tables: 1
-
-Supplemental:
 
 \newpage
 \linenumbers
@@ -80,13 +72,21 @@ Representation of white women and historically underrepresented minorities (HURM
 ## Methods
 Each academic year, each faculty member in the Department of Microbiology and Immunology at the University of Michigan has the opportunity to invite one speaker per year for a weekly seminar series. Some of these seminar slots are dedicated to named lectureships, which are decided by committee, and three trainee-invited speakers. We analyzed the demographics of invited speakers and faculty hosts for five academic years (Fall 2014 - Spring 2019), and compared them to the current trainees when the data were analyzed (Spring 2019). Each speaker was only counted once and those listed as departmental faculty members or as a "host" at any point could not also be considered "invited speakers". The list of faculty hosts was used as a proxy for faculty demographics since as hosts, these faculty members are visible representatives of the department. The trainee lists were obtained from department listservs that included masters students, doctoral students, and post-doctoral fellows.
 
-We hand-coded demographics using personal knowledge, photos, and CVs. The presenting gender of each individual was assigned using a binary system (man/woman). Diversity definitions vary according to the goals and population in question. However, in the United States, there is an inclination to consider both  together. We believe that it is important to distinguish between individuals of historically under-represented minority (HURM) and international backgrounds since each face different issues in the US and the academy and thus require different support systems. For instance, international scientists must contend with visa issues while HURMs have the trauma associated with living in a country who systematically shuts them out (despite an infrastructure that was built on their historical land and labor). For this reason, other assigned demographics included Caucasian, Historically Under-represented Minority (HURM), and International, each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous and/or Hispanic heritage while International individuals were either visiting the US at the time of their seminar, or immigrated to the US as an adult. 
+This is a retrospective study, so individuals were not asked for their identities. Instead we hand-coded proxy demographics using personal knowledge, photos, and CVs. The presenting gender of each individual was assigned using a binary system (man/woman). Due to the low number of individuals in the study, race/ethnicity demographics were split in three groups: Caucasian, Historically Under-represented Minority (HURM), and Non-Caucasian/Non-HURM (NCNH), each with a binary (yes/no) possibilty. Caucasian was assigned using the current U.S. Census definition where those of Middle Eastern, European, and Russian descent are included. HURM individuals were restricted to those with African-American, Indigenous, Alaskan/Hawaian Native, Latinx and/or Hispanic heritage. All others were placed into the NCNH group. We recognize that our proxy demographics are a limitation of the analysis and want to acknowledge that the presenting gender may not reflect the gender(s) that an individual identifies as. We also want to acknowledge that there are many other identities that are not captured in this limited analysis.
 
 ## Results
+```{r result, eval=TRUE, echo=FALSE, cache=FALSE,  warning=FALSE, message=FALSE, include=FALSE}
+lect_summary <- lectureship %>% filter(value == "y") %>% 
+  group_by(Speaker_Gender, demographic) %>% summarise(n = n()) %>% 
+  mutate(prop = get_percent(n, sum(.$n)))
 
-To understand the representation of women, we compared the proportion of women in each academic role. At the trainee level, more than half of students and postdoctoral fellows were women. That dropped to `r gender_combined[[1,5]]`% of faculty hosts and `r gender_combined[[3,5]]`% of the invited speakers (Fig. 1A). Of 27 lectureships over the five year period, `r get_percent(10, 27)`% were awarded to women. The proportion of women as faculty hosts and speakers is equivalent to global estimates that 40% of microbiologists are women (Elseiver), with a slightly lower representation of women in lectureships. 
+cauc_lect <- lect_summary %>% 
+  filter(demographic == "Caucasian") %>% 
+  summarise(sum = sum(n))
+```
+To understand the representation of women, we compared the proportion of women in each academic role. At the trainee level, more than half of students and postdoctoral fellows were women. That dropped to `r gender_combined[[1,4]]`% of faculty hosts and `r gender_combined[[3,4]]`% of the invited speakers (Fig. 1A). Of `r sum(lect_summary$n)` lectureships over the five year period, `r lect_summary[4,4]`% were awarded to women. The proportion of women as faculty hosts and speakers is equivalent to global estimates that 40% of microbiologists are women (Elseiver), with a slightly lower representation of women in lectureships. 
 
-Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees (Fig. 1B). We also observed declines in the representation of HURM and international faculty and speakers relative to the trainees, particularly postdocs (Fig 1B). Caucasian scientists also dominated lectureships, comprising `r get_percent(22, 27)`% of those awarded (Fig. 1C). Three and six lectureships were awarded to HURM and International scientists, respectively. Because the intersection of identities can compound biases and outcomes, we further examined the more prestigous lectureships by gender and Caucasian status. Caucasian men and women accounted for `r get_percent(12, 27)`% and `r get_percent(10, 27)`% of the lectureships, respectively, compared to `r get_percent(5, 27)`% non-Caucasian men and zero non-Caucasian women (Fig. 1D).
+Our analysis identified an over-representation of Caucasian individuals as hosting faculty and invited speakers, relative to the proportion of Caucasian trainees (Fig. 1B). We also observed declines in the representation of HURM and NCNH faculty and speakers relative to the trainees (Fig 1B). Caucasian scientists also dominated the more prestigous invited speaker lectureships, comprising `r get_percent(sum(cauc_lect$sum), sum(lect_summary$n))`% of those awarded (Fig. 1C). HURM and NCNH scientists were awarded `r lect_summary[[2,3]]` and `r lect_summary[[3,3]]` lectureships, respectively. Because the intersection of identities can compound biases and outcomes, we further examined the lectureships by gender and race/ethnicty status. Caucasian men and women accounted for `r lect_summary[[1,4]]`% and `r lect_summary[[4,4]]`% of the lectureships, respectively. Just `r 100 - get_percent(sum(cauc_lect$sum), sum(lect_summary$n))`% of lectureships were held by non-Caucasian men while none were held by non-Caucasian women (Fig. 1D).
 
 ## Discussion
 
@@ -94,7 +94,7 @@ Several papers have investigated the representation of women at scientific confe
 
 We have not been able to identify any other publications examining scientific speaker diversity beyond gender. This seems to be the first. This is concerning since conclusions drawn from gender-based studies are often framed, and considered, to be applicable to other marginalized groups (e.g., HURM). This is a flawed assumption. While there is no doubt some overlap, each group remains marginalized due to a complex set of factors that are unique to each group and cannot always be solved by gender-based solutions. US-serving institutions, such as the University of Michigan have a particular responsibility to the historically suppressed populations included in our definition of HURMs. We therefore implore US institutions to apply this framing to their discussions and research. 
 
-Our data support the advancement of social role theory, which states that to improve retention of white women & HURMs, each group needs equivalent representation to counteract biases and improve self-efficacy. Implict biases that affect perceptions of marginalized groups are the primary issue, but we must acknowledge that it is not always possible to identify members of historically under-served communities. For instance, after data analysis, we learned that at least one speaker in our data set is a member of a HURM group, but it wasn't readily apparent from their internet presence or CV. This limitation makes two important points: that perspective is often as, if not more, important than self-identification with regards to biased outcomes, and that we need better tools to identify members of marginalized groups. 
+According to social role theory, this department is not adequietly serving their non-Caucasian trainees. Implict biases that affect perceptions of marginalized groups are the primary issue, but we must acknowledge that it is not always possible to identify members of historically under-served communities. For instance, after data analysis, we learned that at least one speaker in our data set should have been categorized as a HURM instead of Caucasian, but it wasn't readily apparent from their internet presence or CV. This limitation makes two important points: that percieved identity often plays a larger role than self-identification, and that we need better tools to identify members of marginalized groups. 
 
 ## Building Diversify
 
@@ -111,16 +111,17 @@ To increase the retention of white women and HURMS in STEM, they must also be re
 
 ## Acknowledgements
 
-We thank Dr. Harry Mobley and the Department of Microbiology & Immunology, University of Michigan for their input and financial support that enabled publication of our manuscript. We would also like to acknowledge Nick Lesniak and Dr. Ariangela Kozick for their comments and suggestions. 
+We thank Drs. Beth Moore and Harry Mobley and the Department of Microbiology & Immunology, University of Michigan for their input and financial support that enabled publication of our manuscript. We would also like to acknowledge Nick Lesniak and Dr. Ariangela Kozick for their comments and suggestions. 
 
 ## Author Contributions
 A.K.H. collected the data, assigned demographics, analyzed the data, and created the website. R.M.P. created the Google lists, forms, and website content and the description of their maintenance. J.L. wrote the introduction and provided conceptual advice. All authors contributed to the final manuscript.
 
 ## Code and data availability
-The anonymized data, code for all analysis steps, and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_Libertucci_SpeakerDiversity_XXXX_2019/. Template and complete instructions for generating a field-specific Diversity website are available at https://github.com/diversifymicrobiology/DiversifyMicrobiology.github.io/.
+The anonymized data, code for all analysis steps, and an Rmarkdown version of this manuscript is available at https://github.com/akhagan/Hagan_SpeakerDiversity_XXXX_2019/. Template and complete instructions for generating a field-specific Diversity website are available at https://github.com/diversifymicrobiology/DiversifyMicrobiology.github.io/.
 
 
-![Figure 1.](Figure_1.png) 
+![**The demographics of invited speakers, hosting faculty, and trainees.** A) The proportion of women in each academic role. B) The proportion of each academic role represented by individuals that are Caucasian (left), Historically Underrepresented Minorities (HURM, center) or International (right). C-D)The percent of lectureships awarded to individuals that are C) Caucasian, HURM, International or D) Caucasian or Non-Caucasian by gender.](Figure_1.png) 
+
 
 \newpage
 
