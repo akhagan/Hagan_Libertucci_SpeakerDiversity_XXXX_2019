@@ -18,7 +18,7 @@ get_host_type <- function(x){
   host_type <- case_when(
     x %in% student ~ "Student",
     x %in% postdoc ~ "Postdoc",
-    TRUE ~ "Faculty"
+    TRUE ~ "Host Faculty"
   )
   
   return(host_type)
@@ -26,9 +26,11 @@ get_host_type <- function(x){
 
 raw_data <- read_csv("data/micro_immuno/data_14-19.csv")
 
-host_data <- read_csv("data/micro_immuno/hosts_14-19.csv")
+host_data <- read_csv("data/micro_immuno/hosts_14-19.csv") %>% 
+  select(-Host_Internatl)
 
-speaker_data <- read_csv("data/micro_immuno/speakers_14-19.csv")
+speaker_data <- read_csv("data/micro_immuno/speakers_14-19.csv") %>% 
+  select(-Speaker_Internatl)
 
 compiled_data <- raw_data %>% left_join(., host_data, by = "Host") %>% 
   left_join(., speaker_data, by = "Speaker") %>% 

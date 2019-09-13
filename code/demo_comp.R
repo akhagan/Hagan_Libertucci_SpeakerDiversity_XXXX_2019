@@ -1,9 +1,9 @@
 #what are the trainee demographics?----
 
 demo_combined <- tidy_host %>% 
-  filter(role == "Faculty") %>% 
+  filter(role == "Host Faculty") %>% 
   rbind(., tidy_trainee, tidy_speaker) %>% 
-  filter(demographic != "Gender") %>% 
+  select(-Gender) %>% 
   group_by(demographic, role, value) %>% summarise(n = n()) %>% 
   spread(key = value, value = n) %>% 
   mutate(prop_y = get_percent(y, (y + n)))

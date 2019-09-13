@@ -2,11 +2,8 @@ library(tidyverse)
 
 source("../code/get_plot_options.R")
 
-get_diversity_value <- function(x, y){
-  case_when(
-    x == "man" & y == "y" ~ paste("Cauc M"),
-    x == "woman" & y == "y" ~ paste("Cauc W")
-  )
+get_NCNH_group <- function(x, y){
+  if_else(x == "n" & y == "n", "y", "n")
 }
 
 #calculate two decimal percentage given num & denom
@@ -21,37 +18,34 @@ speaker_data <- read_csv("../data/speaker_dataset_14-19.csv") %>%
   mutate(Speaker_id = rownames(.),
          Host_id = rownames(.)) %>% 
   rename(Speaker_Caucasian = Speaker_caucasian, 
-         Speaker_Gender = Speaker_gender)
+         Speaker_Gender = Speaker_gender) %>% 
+  mutate(Speaker_NCNH = get_NCNH_group(Speaker_Caucasian, Speaker_HURM),
+         Host_NCNH = get_NCNH_group(Host_caucasian, Host_HURM)) %>% 
+  filter(!is.na(Speaker_Gender))
 
 tidy_speaker <- speaker_data %>% 
-  select(contains("Speaker")) %>% 
-  gather(Speaker_Gender:Speaker_Internatl, 
+  select(contains("Speaker")) %>%
+  gather(Speaker_Caucasian:Speaker_NCNH, -Speaker_id, 
          key = demographic, value = value) %>% 
   separate(demographic, into = c("role", "demographic"), sep = "_") %>% 
-  rename(id = Speaker_id) %>% 
-  mutate(demographic = if_else(demographic == "Internatl", 
-                               "International", demographic))
+  rename(id = Speaker_id, Gender = Speaker_Gender)
+  
 tidy_host <- speaker_data %>% 
-  select(contains("Host")) %>% 
-  gather(Host_gender:Host_Internatl, 
+  select(contains("Host")) %>%
+  gather(Host_caucasian:Host_NCNH, -Host_id, 
          key = demographic, value = value) %>% 
   separate(demographic, into = c("role", "demographic"), sep = "_") %>% 
-  rename(id = Host_id) %>% 
-  mutate(demographic = case_when(
-    demographic == "Internatl" ~ "International",
-    demographic == "gender" ~ "Gender",
-    demographic == "caucasian" ~ "Caucasian",
-    TRUE ~ demographic
-  )) %>% 
+  mutate(demographic = if_else(demographic == "caucasian", 
+                               "Caucasian", demographic)) %>% 
   select(-role) %>% 
-  rename(role = Host) 
+  rename(role = Host, id = Host_id, Gender = Host_gender) %>% 
+  filter(!is.na(Gender))
   
 trainee_data <- read_csv("../data/trainee_data_19.csv") %>% 
   mutate(id = rownames(.))
 
 tidy_trainee <- trainee_data %>% 
-  gather(Gender:Internatl, key = demographic, value = value) %>% 
+  mutate(NCNH = get_NCNH_group(Caucasian, HURM)) %>% 
+  gather(Caucasian:HURM, NCNH, key = demographic, value = value) %>% 
   rename(role = Trainee_type) %>% 
-  mutate(role = str_to_title(role)) %>% 
-  mutate(demographic = if_else(demographic == "Internatl", 
-                               "International", demographic))
+  mutate(role = str_to_title(role)) 
