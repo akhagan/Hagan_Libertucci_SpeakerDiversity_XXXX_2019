@@ -13,6 +13,12 @@ get_percent <- function(x, y){
   return(percent)
 }
 
+#function to remove % & decimal labels from figs C & D
+multiply <- function(x){
+  percent <- x * 100
+  return(percent)
+}
+
 #data setup----
 speaker_data <- read_csv("../data/speaker_dataset_14-19.csv") %>% 
   mutate(Speaker_id = rownames(.),
