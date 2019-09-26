@@ -16,7 +16,7 @@ lectureship_demo_plot <- lectureship %>%
   facet_grid(~demographic)+
   scale_y_continuous(labels = multiply, limits = c(0, 1))+
   #geom_text(aes(y = ((..count..)/sum(..count..)), label = ..count..), stat = "count", vjust = -0.25)+
-  labs(y = "Lectureships (%)", x = "Speaker Demographics")+
+  labs(y = "Lectureships (%)", x = "Invited Speaker Demographics")+
   scale_fill_manual(values = "grey17")+
   my_theme_horiz+
   theme(axis.text.x=element_blank(),
@@ -29,7 +29,7 @@ lectureship_gend_plot <- lectureship %>%
                fill = Speaker_Gender), position = "dodge")+
   facet_grid(~demographic)+
   scale_y_continuous(labels = multiply, limits = c(0, 1))+
-  labs(y = "\nLectureships (%)", x = "Speaker Gender")+
+  labs(y = "\nLectureships (%)", x = "Invited Speaker Gender")+
   scale_fill_manual(values = c("grey17", "dark gray"))+
   my_theme_horiz
 
