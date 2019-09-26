@@ -4,7 +4,7 @@ library(cowplot)
 #library(patchwork)
 
 #settings----
-dat_levels <- c("Graduate Student", "Postdoctoral Fellow", "Host Faculty", "Invited Speaker")
+dat_levels <- c("Student", "Postdoc", "Host Faculty", "Speaker")
 
 dat_linetype <- c("solid", "dashed", "dotted")
 
