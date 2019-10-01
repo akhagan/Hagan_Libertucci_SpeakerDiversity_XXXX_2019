@@ -1,0 +1,27 @@
+---
+geometry: margin=1.0in
+output:
+  pdf_document:
+    includes:
+      in_header: header.tex
+    keep_tex: yes
+---
+\begin{center}
+\captionof{table}{List of suggestions and resources to increase invited speaker diversity.}
+\small
+\begin{tabular}{|l|l|l|}
+\hline
+
+\rowcolor{lightgray}
+\textbf{Suggestion} & \textbf{Description} & \textbf{Resource} \\ \hline
+
+Lab-invited speakers & \makecell[l]{Faculty members can request \\suggestions from trainees} & \\ \hline
+
+Use a list & \makecell[l]{Many lists of scientists from \\under-represented and under-served \\groups are available} &  \makecell[l]{https://DiversifyMicrobiology.\\github.io/resources}\\ \hline
+
+Create a list & \makecell[l]{Use the GitHub template \\ create a self-nomination list and \\resource for your field} & \makecell[l]{https://github.com/diversifymicrobiology/\\DiversifyMicrobiology.github.io} \\ \hline
+
+Highlight the journey & \makecell[l]{Invite all speakers to spend \\a few moments describing their \\personal science journey} & \\ \hline
+
+\end{tabular}
+\end{center}
