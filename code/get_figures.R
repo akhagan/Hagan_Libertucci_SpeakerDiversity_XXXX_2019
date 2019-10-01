@@ -15,5 +15,5 @@ bottom_row <- plot_grid(lectureship_demo_plot, lectureship_gend_plot,
 plot_grid(top_row, demo_plot, bottom_row, labels = c("A", "B", ""),
           label_size = 18, nrow = 3, rel_widths = c(1, 3, 1))
 
-ggsave("Figure_1.png", device = 'png', 
+ggsave("Figure_1.jpg", device = 'jpg', 
        path = '../submission', width = 12, height = 12)
