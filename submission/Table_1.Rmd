@@ -7,21 +7,35 @@ output:
     keep_tex: yes
 ---
 \begin{center}
-\captionof{table}{List of suggestions and resources to increase invited speaker diversity.}
+\captionof{table}{Suggestions and resources to increase invited speaker diversity.}
 \small
-\begin{tabular}{|l|l|l|}
+\centering
+\begin{tabular}{>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{7cm}|>{}m{5cm}}
+
 \hline
 
 \rowcolor{lightgray}
-\textbf{Suggestion} & \textbf{Description} & \textbf{Resource} \\ \hline
+\textbf{Suggestion} & \textbf{Description} & \textbf{Resource} \\\hline
 
-Lab-invited speakers & \makecell[l]{Faculty members can request \\suggestions from trainees} & \\ \hline
+Trainee-invited speakers & Request suggestions from trainees, increase number of trainee-group-invited speakers & \\\hline
 
-Use a list & \makecell[l]{Many lists of scientists from \\under-represented and under-served \\groups are available} &  \makecell[l]{https://DiversifyMicrobiology.\\github.io/resources}\\ \hline
+Use a list & Lists of scientists from under-represented and under-served groups are available in several fields &  https://DiversifyMicrobiology .github.io/resources \\\hline
 
-Create a list & \makecell[l]{Use the GitHub template \\ create a self-nomination list and \\resource for your field} & \makecell[l]{https://github.com/diversifymicrobiology/\\DiversifyMicrobiology.github.io} \\ \hline
+Create a list & Use the GitHub template to create a self-nomination list and resource for your field & https://github.com /diversifymicrobiology /DiversifyMicrobiology.github.io \\\hline
 
-Highlight the journey & \makecell[l]{Invite all speakers to spend \\a few moments describing their \\personal science journey} & \\ \hline
+Use resources from professional societies & Many scientific societies have a committee focused on serving individuals from under-represented and underserved backgrounds. Other societies (e.g., SACNAS) are dedicated to these issues. & SACNAS, ABRCMS, AISES, ASM Subcommittee on Minority Education \\\hline
+
+Think outside your sub-discipline & Speakers may introduce you to a technique that is not used in your sub-discipline & \\\hline
+
+Consider scientists outside research-focused universities & Scientists from industry, teaching-focused institutions, and non-profit orgs have different approaches to their research & \\\hline
+
+Communicate invitation expectations & Unit leadership should explicitly communicate expectations about who is invited to speak and the desired atmosphere & \\\hline
+
+Encourage trainees to engage & \makecell[l]{When a talk is over, ensure that \\trainees are the first to ask questions} & \\\hline
+
+Foster an inclusive atmosphere & Consider the identities of individuals the speaker is meeting with. Ask if the speaker would like to meet a particular student group & \\\hline
+
+Highlight the journey & Invite speakers to spend a few moments describing their personal science journey & \\\hline
 
 \end{tabular}
 \end{center}
