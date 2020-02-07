@@ -5,12 +5,13 @@ output:
     includes:
       in_header: header.tex
     keep_tex: yes
+  word_document: default
 ---
 \begin{center}
 \captionof{table}{Suggestions and resources to increase invited speaker diversity.}
 \small
 \centering
-\begin{tabular}{>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{7cm}|>{}m{5cm}}
+\begin{tabular}{>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{7cm}|>{\centering\arraybackslash}m{5cm}}
 
 \hline
 
@@ -21,7 +22,7 @@ Trainee-invited speakers & Request suggestions from trainees, increase number of
 
 Use a list & Lists of scientists from under-represented and under-served groups are available in several fields &  https://DiversifyMicrobiology .github.io/resources \\\hline
 
-Create a list & Use the GitHub template to create a self-nomination list and resource for your field & https://github.com /diversifymicrobiology /DiversifyMicrobiology.github.io \\\hline
+Create a list & Use the GitHub template to create a self-nomination list and resource for your field & Template can be found at https://github.com /diversifymicrobiology /DiversifyMicrobiology.github.io \\\hline
 
 Use resources from professional societies & Many scientific societies have a committee focused on serving individuals from under-represented and underserved backgrounds. Other societies (e.g., SACNAS) are dedicated to these issues. & SACNAS, ABRCMS, AISES, ASM Subcommittee on Minority Education \\\hline
 
@@ -31,7 +32,7 @@ Consider scientists outside research-focused universities & Scientists from indu
 
 Communicate invitation expectations & Unit leadership should explicitly communicate expectations about who is invited to speak and the desired atmosphere & \\\hline
 
-Encourage trainees to engage & \makecell[l]{When a talk is over, ensure that \\trainees are the first to ask questions} & \\\hline
+Encourage trainees to engage & When a talk is over, ensure that trainees are the first to ask questions & \\\hline
 
 Foster an inclusive atmosphere & Consider the identities of individuals the speaker is meeting with. Ask if the speaker would like to meet a particular student group & \\\hline
 
